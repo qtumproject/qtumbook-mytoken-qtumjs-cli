@@ -71,7 +71,13 @@ node index.js transfer \
  qdgznat81MfTHZUrQrLZDZteAx212X4Wjj \
  68bfd2e027ba8d04e8053faa0c18d1c448962649 \
  100
+```
 
+> Note the from address, for now, has to be a base58 address.
+
+The output:
+
+```
 transfer tx: a32edf3aba47b0eebd96a86f27311d655a66dcdbac9bb2765076044dd0e02c18
 
 { amount: 0,
