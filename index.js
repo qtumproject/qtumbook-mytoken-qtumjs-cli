@@ -1,5 +1,5 @@
 // assume: node 8 or above
-
+const ora = require("ora")
 const parseArgs = require("minimist")
 
 const {
@@ -36,9 +36,10 @@ async function mint(toAddr, amount) {
   console.log("mint tx:", tx.txid)
   console.log(tx)
 
-  await tx.confirm(1)
-
-  console.log(`mint confirmed`)
+  // await: tx.confirm(1)
+  const confirmation = tx.confirm(1)
+  ora.promise(confirmation, "confirm mint")
+  await confirmation
 }
 
 async function transfer(fromAddr, toAddr, amount) {
@@ -49,9 +50,10 @@ async function transfer(fromAddr, toAddr, amount) {
   console.log("transfer tx:", tx.txid)
   console.log(tx)
 
-  await tx.confirm(1)
-
-  console.log(`transfer confirmed`)
+  // or: await tx.confirm(1)
+  const confirmation = tx.confirm(1)
+  ora.promise(confirmation, "confirm transfer")
+  await confirmation
 }
 
 // loop to stream contract events
