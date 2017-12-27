@@ -34,7 +34,6 @@ async function mint(toAddr, amount) {
   const tx = await myToken.send("mint", [toAddr, amount])
 
   console.log("mint tx:", tx.txid)
-
   console.log(tx)
 
   await tx.confirm(1)
@@ -48,6 +47,7 @@ async function transfer(fromAddr, toAddr, amount) {
   })
 
   console.log("transfer tx:", tx.txid)
+  console.log(tx)
 
   await tx.confirm(1)
 
