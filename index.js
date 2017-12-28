@@ -13,10 +13,10 @@ const rpc = new QtumRPC("http://qtum:test@localhost:3889")
 const myToken = new Contract(rpc, repo.contracts["zeppelin-solidity/contracts/token/CappedToken.sol"])
 
 async function totalSupply() {
-  const res = await myToken.call("totalSupply")
+  const result = await myToken.call("totalSupply")
 
   // supply is a BigNumber instance (see: bn.js)
-  const supply = res.outputs[0]
+  const supply = result.outputs[0]
 
   console.log("supply", supply.toNumber())
 }
@@ -36,7 +36,7 @@ async function mint(toAddr, amount) {
   console.log("mint tx:", tx.txid)
   console.log(tx)
 
-  // await: tx.confirm(1)
+  // or: await tx.confirm(1)
   const confirmation = tx.confirm(1)
   ora.promise(confirmation, "confirm mint")
   await confirmation
