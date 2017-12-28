@@ -1,3 +1,5 @@
+See [companion tutorial](https://github.com/qtumproject/qtumbook/blob/master/part2/erc20-js.md).
+
 # A NodeJS CLI Tool For ERC20 Token
 
 Install dependencies
