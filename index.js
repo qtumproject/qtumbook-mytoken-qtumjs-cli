@@ -61,19 +61,9 @@ async function streamEvents() {
   console.log("Subscribed to contract events")
   console.log("Ctrl-C to terminate events subscription")
 
-  let nextblock = "latest"
-
-  while (true) {
-    const result = await myToken.logs({
-      from: nextblock,
-      minconf: 1,
-    })
-    for (const entry of result.entries) {
-      console.log(entry)
-    }
-
-    nextblock = result.nextblock
-  }
+  myToken.onLog((entry) => {
+    console.log(entry)
+  }, { minconf: 1 })
 }
 
 async function main() {
