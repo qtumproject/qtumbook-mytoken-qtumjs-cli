@@ -105,6 +105,40 @@ transfer tx: a32edf3aba47b0eebd96a86f27311d655a66dcdbac9bb2765076044dd0e02c18
 }
 ```
 
+## Get Contract Events
+
+```
+node index.js logs 12100
+
+logs { entries:
+   [ { blockHash: '369c6ded05c27ae7efc97964cce083b0ea9b8b950e67c51e52cb1bf898b9c415',
+       blockNumber: 12184,
+       transactionHash: 'd1638a53f38fd68c5763e2eef9d86b9fc6ee7ea3f018dae7b1e385b4a9a78bc7',
+       transactionIndex: 2,
+       from: 'dcd32b87270aeb980333213da2549c9907e09e94',
+       to: 'a778c05f1d0f70f1133f4bbf78c1a9a7bf84aed3',
+       cumulativeGasUsed: 39306,
+       gasUsed: 39306,
+       contractAddress: 'a778c05f1d0f70f1133f4bbf78c1a9a7bf84aed3',
+       topics: [Array],
+       data: '00000000000000000000000000000000000000000000000000000000000003e8',
+       event: [Object] },
+     { blockHash: '369c6ded05c27ae7efc97964cce083b0ea9b8b950e67c51e52cb1bf898b9c415',
+       blockNumber: 12184,
+       transactionHash: 'd1638a53f38fd68c5763e2eef9d86b9fc6ee7ea3f018dae7b1e385b4a9a78bc7',
+       transactionIndex: 2,
+       from: 'dcd32b87270aeb980333213da2549c9907e09e94',
+       to: 'a778c05f1d0f70f1133f4bbf78c1a9a7bf84aed3',
+       cumulativeGasUsed: 39306,
+       gasUsed: 39306,
+       contractAddress: 'a778c05f1d0f70f1133f4bbf78c1a9a7bf84aed3',
+       topics: [Array],
+       data: '00000000000000000000000000000000000000000000000000000000000003e8',
+       event: [Object] } ],
+  count: 2,
+  nextblock: 12185 }
+```
+
 ## Stream Contract Events
 
 ```

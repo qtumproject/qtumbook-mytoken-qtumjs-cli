@@ -27,7 +27,7 @@ async function balanceOf(owner) {
   // balance is a BigNumber instance (see: bn.js)
   const balance = res.outputs[0]
 
-  console.log(`balance:`,  balance.toNumber())
+  console.log(`balance:`, balance.toNumber())
 }
 
 async function mint(toAddr, amount) {
@@ -56,7 +56,6 @@ async function transfer(fromAddr, toAddr, amount) {
   await confirmation
 }
 
-// loop to stream contract events
 async function streamEvents() {
   console.log("Subscribed to contract events")
   console.log("Ctrl-C to terminate events subscription")
@@ -64,6 +63,15 @@ async function streamEvents() {
   myToken.onLog((entry) => {
     console.log(entry)
   }, { minconf: 1 })
+}
+
+async function getLogs(fromBlock, toBlock) {
+  const logs = await myToken.logs({
+    fromBlock,
+    minconf: 1,
+  })
+
+  console.log("logs", logs)
 }
 
 async function main() {
@@ -100,6 +108,12 @@ async function main() {
       const amount = argv._[3]
 
       await transfer(fromAddr, toAddr, amount)
+      break
+    case "logs":
+      let fromBlock = argv._[1] || "0"
+      fromBlock = parseInt(fromBlock)
+
+      await getLogs(fromBlock)
       break
     case "events":
       await streamEvents() // logEvents will never return
