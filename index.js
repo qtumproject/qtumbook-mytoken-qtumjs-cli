@@ -71,7 +71,7 @@ async function getLogs(fromBlock, toBlock) {
     minconf: 1,
   })
 
-  console.log("logs", logs)
+  console.log(JSON.stringify(logs, null, 2))
 }
 
 async function main() {
