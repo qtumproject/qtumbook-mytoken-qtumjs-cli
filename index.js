@@ -9,7 +9,7 @@ const {
 
 const repo = require("./solar.json")
 
-const rpc = new QtumRPC("http://qtum:test@localhost:3889")
+const rpc = new QtumRPC("http://qtum:test@localhost:4889")
 const myToken = new Contract(rpc, repo.contracts["zeppelin-solidity/contracts/token/CappedToken.sol"])
 
 async function totalSupply() {
@@ -68,6 +68,7 @@ async function streamEvents() {
 async function getLogs(fromBlock, toBlock) {
   const logs = await myToken.logs({
     fromBlock,
+    toBlock,
     minconf: 1,
   })
 
@@ -110,10 +111,10 @@ async function main() {
       await transfer(fromAddr, toAddr, amount)
       break
     case "logs":
-      let fromBlock = argv._[1] || "0"
-      fromBlock = parseInt(fromBlock)
+      const fromBlock = parseInt(argv._[1]) || 0
+      const toBlock = parseInt(argv._[2]) || "latest"
 
-      await getLogs(fromBlock)
+      await getLogs(fromBlock, toBlock)
       break
     case "events":
       await streamEvents() // logEvents will never return
