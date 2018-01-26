@@ -3,14 +3,12 @@ const ora = require("ora")
 const parseArgs = require("minimist")
 
 const {
-  QtumRPC,
-  Contract,
+  Qtum,
 } = require("qtumjs")
 
-const repo = require("./solar.json")
-
-const rpc = new QtumRPC("http://qtum:test@localhost:4889")
-const myToken = new Contract(rpc, repo.contracts["zeppelin-solidity/contracts/token/CappedToken.sol"])
+const repoData = require("./solar.json")
+const qtum = new Qtum("http://qtum:test@localhost:4889", repoData)
+const myToken = qtum.contract("zeppelin-solidity/contracts/token/CappedToken.sol")
 
 async function totalSupply() {
   const result = await myToken.call("totalSupply")
@@ -39,7 +37,8 @@ async function mint(toAddr, amount) {
   // or: await tx.confirm(1)
   const confirmation = tx.confirm(1)
   ora.promise(confirmation, "confirm mint")
-  await confirmation
+  const receipt = await confirmation
+  console.log("tx receipt:", JSON.stringify(receipt, null, 2))
 }
 
 async function transfer(fromAddr, toAddr, amount) {
