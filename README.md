@@ -16,7 +16,7 @@ docker run -it --rm \
   -p 4889:3889 \
   hayeah/qtumportal
 ```
-
+[More information about Qtum's Docker image](https://github.com/qtumproject/qtumbook/blob/d0227ca5cbc8f4ff1d377f8aa8422a8a3d41c0ac/part1/qtum-docker.md)
 ## Check Balance
 
 ```
