@@ -138,23 +138,23 @@ ora@^1.3.0:
     cli-spinners "^1.0.0"
     log-symbols "^1.0.2"
 
-qtumjs-ethjs-abi@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/qtumjs-ethjs-abi/-/qtumjs-ethjs-abi-1.0.2.tgz#f68b7ae8e20a407f8441fc0c9958402cf505094b"
+qtumjs-ethjs-abi@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/qtumjs-ethjs-abi/-/qtumjs-ethjs-abi-1.0.3.tgz#d2aecd89abfa4e118de48af9a741855cd89947dd"
   dependencies:
     bn.js "4.11.6"
     buffer "^5.0.8"
     js-sha3 "0.5.5"
     number-to-bn "1.7.0"
 
-qtumjs@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/qtumjs/-/qtumjs-1.7.3.tgz#2037a44e8461939eb82e4a204bad6ca113f0e2c5"
+qtumjs@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/qtumjs/-/qtumjs-1.8.1.tgz#055edefbc80dd5998c00b738c3f597900180b8c6"
   dependencies:
     axios "^0.17.1"
     btoa "^1.1.2"
     eventemitter3 "^2.0.3"
-    qtumjs-ethjs-abi "^1.0.2"
+    qtumjs-ethjs-abi "^1.0.3"
     url-parse "^1.1.9"
 
 querystringify@~1.0.0:
