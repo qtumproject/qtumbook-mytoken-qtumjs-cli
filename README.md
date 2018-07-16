@@ -12,11 +12,11 @@ yarn install
 ```
 docker run -it --rm \
   --name mytoken \
-  -v `pwd`:/dapp \
+  -v `pwd`/dapp \
   -p 4889:3889 \
   hayeah/qtumportal
 ```
-
+[More information about Qtum's Docker image](https://github.com/qtumproject/qtumbook/blob/d0227ca5cbc8f4ff1d377f8aa8422a8a3d41c0ac/part1/qtum-docker.md)
 ## Check Balance
 
 ```
@@ -28,6 +28,13 @@ output:
 ```
 balance: 1000
 ```
+
+**Note:** If you get this error...
+
+```
+Error: Cannot find module './solar.json'
+```
+[Follow this tutoral](https://github.com/qtumproject/qtumbook/blob/a332aab45b5b8ca8eab1ee15cd6709487099d6b8/part2/erc20-js.md#getting-the-total-supply)
 
 ## Mint Tokens
 
